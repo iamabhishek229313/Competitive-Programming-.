@@ -2,11 +2,14 @@
 #include <string.h>
 using namespace std ;
 int main (){
-    string the_code ; int k ;
+    string the_code ; int k , k2 ; int actions ;
     getline(cin,the_code);
-    cin>>k;
+    cin>>actions;
+    k = actions%26 ;
+    k2 = actions%10 ;
     for(int i = 0 ;i < the_code.length() ;i++){
         //Taking the big alphabates .
+        
         if(the_code[i]>=65 && the_code[i]<=90){
             if((the_code[i] + k) <= 90){
                 the_code[i] = the_code[i] + k ;
@@ -14,8 +17,8 @@ int main (){
             else if ((the_code[i] + k) > 90){
                 int tail = 90 - the_code[i] ;
                 int copy_of_k = k ;
-                 copy_of_k = k - tail - 1 ;
-                the_code[i] = copy_of_k ;
+                 copy_of_k = k - tail ;
+                the_code[i] = 65 + copy_of_k - 1;
             }
         }
         //Taking the small alphabates .
@@ -27,21 +30,21 @@ int main (){
             else if ((the_code[i] + k) > 122){
                 int tail = 122 - the_code[i] ;
                 int copy_of_k = k ;
-                 copy_of_k = k - tail - 1 ;
-                the_code[i] = copy_of_k ;
+                 copy_of_k = k - tail  ;
+                the_code[i] = 97 + copy_of_k -1 ;
             }
         }
         
         //Taking up the Numbers .
-        else if (the_code[i]>=0 && the_code[i]<=9){
-            if((the_code[i] + k) <= 9){
-                the_code[i] = the_code[i] + k ;
+        else if (the_code[i]>=48 && the_code[i]<=57){
+            if((the_code[i] + k2) <= 57){
+                the_code[i] = the_code[i] + k2 ;
             }
-            else if ((the_code[i] + k) > 9){
-                int tail = 9 - the_code[i] ;
-                int copy_of_k = k ;
-                 copy_of_k = k - tail - 1 ;
-                the_code[i] = copy_of_k ;
+            else if ((the_code[i] + k2) > 57){
+                int tail = 57 - the_code[i] ;
+                int copy_of_k2 = k2 ;
+                 copy_of_k2 = k2 - tail  ;
+                the_code[i] = 48 + copy_of_k2 - 1 ;
             }
         }
         //Doing nothing for other things .
