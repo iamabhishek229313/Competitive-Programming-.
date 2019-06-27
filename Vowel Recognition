@@ -1,0 +1,31 @@
+// Q : - https://www.hackerearth.com/practice/basic-programming/complexity-analysis/time-and-space-complexity/practice-problems/algorithm/vowel-game-f1a1047c/
+#include <iostream>
+#include <string>
+#include <string.h>
+using namespace std ;
+int main (){
+    int test_cases ;
+    cin>>test_cases ;
+    char arr[10] = {'a','e','i','o','u','A','E','I','O','U'};
+    while(test_cases--){
+        string s ;
+        getline(cin,s); // takes up the string .
+        int length = s.length();
+        int sum = 0 ;
+        for(int i = 0 ; i <length-2 ;i++){
+          for(int j = i ; j < length - 2 ; j++){
+                string s1 = s.substr(i,j);
+                 for(int k = 0 ; k <s1.length() ; k++){
+                 	for(int  p = 0 ;p <10 ; p++){
+                 		if(s1[i]==arr[p]){
+                 			sum++;
+						 }
+					 }
+				 }
+          }
+        }
+    cout<<sum<<endl;
+    }
+
+    return 0 ;
+}
